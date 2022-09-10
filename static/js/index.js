@@ -3,9 +3,7 @@ import { buildGame, calculScore, updateGames } from "./game-hole.js"
 import {CurrentScoreModel} from "../js/Models/currentGames.js"
 import { buildResults } from "./results.js"
 
-console.log("justbeforestate")
-
-//updateAllGames()
+updateAllGames()
 
 var state = {
     day: 2,
@@ -22,7 +20,6 @@ if (state.all_players.length === 0) {
     getAllPlayers()
 }
 if (state.all_games.length === 0) {
-    console.log("in state")
     getGames()
 }
 
@@ -30,7 +27,6 @@ if (state.all_games.length === 0) {
 
 document.addEventListener("DOMContentLoaded", () => {
     document.body.addEventListener("click", e => {
-        console.log("in event listener")
         if (e.target.matches("#draft")) {
             var newPlayer = document.getElementById('new-player');
             var newPlayerNames = newPlayer.options[newPlayer.selectedIndex].textContent;
@@ -95,9 +91,12 @@ document.addEventListener("DOMContentLoaded", () => {
             
             state.game.red.player1.score[hole] = document.getElementById("new-score-3").value;
             state.game.blue.player1.score[hole] = document.getElementById("new-score-1").value;
-            
+            state.game.red.player2.score[hole] = document.getElementById("new-score-4").value;
+            state.game.blue.player2.score[hole] = document.getElementById("new-score-2").value;
             currentScore.game.team1_scores[0] = state.game.red.player1.score
             currentScore.game.team2_scores[0] = state.game.blue.player1.score
+            currentScore.game.team1_scores[1] = state.game.red.player2.score
+            currentScore.game.team2_scores[1] = state.game.blue.player2.score
             
             if (state.game.day_id == 2) {
                 state.game.red.player2.score[hole] = 99;
@@ -109,6 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             state.game.hole = Math.max(hole - 1, 0);
             calculScore(currentScore);
+            updateGames(state.game)
         }
         if (e.target.matches("#next-hole")) {
             var hole = state.game.hole;
@@ -116,8 +116,8 @@ document.addEventListener("DOMContentLoaded", () => {
             
             state.game.red.player1.score[hole] = document.getElementById("new-score-3").value;
             state.game.blue.player1.score[hole] = document.getElementById("new-score-1").value;
-            state.game.red.player2.score[hole] = document.getElementById("new-score-2").value;
-            state.game.blue.player2.score[hole] = document.getElementById("new-score-4").value;
+            state.game.red.player2.score[hole] = document.getElementById("new-score-4").value;
+            state.game.blue.player2.score[hole] = document.getElementById("new-score-2").value;
             currentScore.game.team1_scores[0] = state.game.red.player1.score
             currentScore.game.team2_scores[0] = state.game.blue.player1.score
             currentScore.game.team1_scores[1] = state.game.red.player2.score
@@ -131,8 +131,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 currentScore.game.team2_scores[1] = state.game.blue.player2.score
             }
             
-            console.log(currentScore)
             state.game.hole = Math.min(hole + 1, 18)
+            console.log("in next", currentScore)
             calculScore(currentScore);
             updateGames(state.game)
         }
@@ -324,7 +324,6 @@ function getAllPlayers() {
             }
         })
             .then(response => response.json());
-            console.log(data.body)
             state.all_players = data.body;
     })();
 }

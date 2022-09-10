@@ -197,7 +197,7 @@ function getGame(day_id, game_id, title) {
         
     })();
 }
-function calculScore(scores) {
+function calculScore2(scores) {
     (async () => {
         const data = await fetch('https://hk2wwul58k.execute-api.us-east-2.amazonaws.com/test/match-calculation',{
             method:'POST',
@@ -219,6 +219,45 @@ function calculScore(scores) {
     })();
      
 }
+
+function calculScore(scores) {
+    console.log("in next", scores.game)
+    var game = scores.game
+    var game_type = game.game_type;
+    var team1_scores = game.team1_scores;
+    var team2_scores = game.team2_scores;
+    var team1_score = []
+        var team2_score = []
+        if (game_type === "bestBall_4") {
+            for (let i = 0; i < team1_scores[0].length; i++) { 
+                var team1_best = Math.min(parseInt(team1_scores[0][i]), parseInt(team1_scores[1][i]))
+                var team2_best = Math.min(parseInt(team2_scores[0][i]), parseInt(team2_scores[1][i]))
+                if (team1_best < team2_best) {
+                    team1_score.push(1);
+                    team2_score.push(-1);
+                } else if (team1_best > team2_best) {
+                    team1_score.push(-1);
+                    team2_score.push(1);
+                } else {
+                    team1_score.push(0);
+                    team2_score.push(0);
+                }
+                
+            }
+        }
+    
+    let results = {
+        team1_score: team1_score,
+        team2_score: team2_score
+    }
+    var new_scores = results
+    state.game.red.score = getArraySum(new_scores["team1_score"]);
+    state.game.red["allHoles"] = new_scores["team1_score"]
+    state.game.blue.score = getArraySum(new_scores["team2_score"]);
+    state.game.blue["allHoles"] = new_scores["team2_score"];
+    postScore()
+}
+
 function postScore() {
     (async () => {
         const data = await fetch('https://r6d0b8mldh.execute-api.us-east-2.amazonaws.com/test/games',{

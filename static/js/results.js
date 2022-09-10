@@ -10,7 +10,7 @@ function buildResults(title) {
 
     var titlePage = titleCustom("Saguenay Lac-Saint-Jean");
 
-    console.log(titlePage)
+ 
     main.appendChild(titlePage)
     
     const columnsDay1 = "repeat(3, 1fr)";
@@ -221,7 +221,6 @@ function totScoreCalculation() {
     for (var i = 0; i < games.length; i++) {
         
         if (parseInt(games[i].hole) > 0) {
-            console.log(games[i].day_id, games[i].game_id)
             if (parseInt(games[i].red.score) > parseInt(games[i].blue.score)) {
                 redScore = redScore + 1;
             } else if (parseInt(games[i].red.score) < parseInt(games[i].blue.score)) {
@@ -230,7 +229,6 @@ function totScoreCalculation() {
                 redScore = redScore + 0.5;
                 blueScore = blueScore + 0.5;
             }
-            console.log(redScore, blueScore)
         }
         
     }
