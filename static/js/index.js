@@ -5,7 +5,7 @@ import { buildResults } from "./results.js"
 
 console.log("justbeforestate")
 
-updateAllGames()
+//updateAllGames()
 
 var state = {
     day: 2,
