@@ -3,7 +3,7 @@ import { buildGame, calculScore, updateGames } from "./game-hole.js"
 import {CurrentScoreModel} from "../js/Models/currentGames.js"
 import { buildResults } from "./results.js"
 
-updateAllGames()
+//updateAllGames()
 
 var state = {
     day: 2,
