@@ -1,0 +1,14 @@
+.roster {
+    color: white;
+    border-radius: 10px;
+    height: 100%;
+    width: 200px;
+    padding: 5px;
+    margin: auto;
+    border: solid white;
+    text-align: center;
+    font-size: 15px;
+    /*align-self: auto;*/
+  }
+
+ 

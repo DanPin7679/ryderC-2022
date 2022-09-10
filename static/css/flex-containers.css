@@ -1,0 +1,188 @@
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 50px;
+}
+.flex-container > div {
+  background-color: #f1f1f1;
+  margin: 10px;
+  padding: 20px;
+  font-size: 20px;
+  color: black;
+}
+
+.flex-child {
+    flex: 1;
+    border: 2px solid darkorange;
+    color: white;
+}
+
+.flex-child:first-child {
+    margin-right: 20px;
+}
+
+
+.grid > div {
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* color: white; */
+    /*background-color: black;*/
+    /* font-size: 8px; */
+}
+
+
+.containerGame {
+    height: 100%;
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+}
+
+.containerGame > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    /*background-color: black;*/
+    font-size: 8px;
+}
+.partie {
+    grid-row: 3 / 4;
+    grid-column: 1 / 13;
+}
+.played-hole {
+    grid-row: 4 / 5;
+    grid-column: 1 / 13;
+}
+.enter-hole {
+    grid-row: 8 / 9;
+    grid-column: 1 / 13;
+}
+
+.blue-total-score {
+    grid-row: 1 / 2;
+    grid-column: 1 / 7;
+}
+.red-total-score {
+    grid-row: 1 / 2;
+    grid-column: 7 / 13;
+}
+
+.blue-score {
+    grid-row: 5 / 7;
+    grid-column: 5 / 7;
+}
+.red-score {
+    grid-row: 5 / 7;
+    grid-column: 7 / 9;
+}
+
+.title-total-score {
+    grid-row: 1 / 6;
+    grid-column: 1 / 13;
+    /*margin-bottom: 10px;*/
+}
+
+.blue-main-total-score {
+    grid-row: 6 / 12;
+    grid-column: 1 / 7;
+    /*margin-bottom: 20px;*/
+    /*padding: 10px;*/
+}
+.red-main-total-score {
+    grid-row: 6 / 12;
+    grid-column: 7 / 13;
+    /*margin-bottom: 20px;*/
+    /*padding: 10px;*/
+}
+.player1-score {
+    grid-row: 5 / 6;
+    grid-column: 4 / 5;
+}
+.player2-score {
+    grid-row: 6 / 7;
+    grid-column: 4 / 5;
+}
+.player3-score {
+    grid-row: 5 / 6;
+    grid-column: 9 / 10;
+}
+.player4-score {
+    grid-row: 6 / 7;
+    grid-column: 9 / 10;
+}
+
+.player1-name {
+    grid-row: 5 / 6;
+    grid-column: 1 / 4;
+}
+.player2-name {
+    grid-row: 6 / 7;
+    grid-column: 1 / 4;
+}
+.player3-name {
+    grid-row: 5 / 6;
+    grid-column: 10 / 13;
+}
+.player4-name {
+    grid-row: 6 / 7;
+    grid-column: 10 / 13;
+}
+
+.new1-name {
+    grid-row: 9 / 10;
+    grid-column: 1 / 4;
+}
+.new2-name {
+    grid-row: 10 / 11;
+    grid-column: 1 / 4;
+}
+.new3-name {
+    grid-row: 9 / 10;
+    grid-column: 10 / 13;
+}
+.new4-name {
+    grid-row: 10 / 11;
+    grid-column: 10 / 13;
+}
+
+.new1-score {
+    grid-row: 9 / 10;
+    grid-column: 4 / 6;
+}
+.new2-score {
+    grid-row: 10 / 11;
+    grid-column: 4 / 6;
+}
+.new3-score {
+    grid-row: 9 / 10;
+    grid-column: 8 / 10;
+}
+.new4-score {
+    grid-row: 10 / 11;
+    grid-column: 8 / 10;
+}
+.previous-hole {
+    grid-row: 12 / 13;
+    grid-column: 2 / 5;
+}
+.next-hole {
+    grid-row: 12 / 13;
+    grid-column: 9 / 12;
+}
+.home {
+    grid-row: 12 / 13;
+    grid-column: 6 / 8;
+}
+/*.menu {}*/
+
+/*.content {*/
+/*    grid-column: 2 / -1;*/
+/*}*/
+
+/*.footer {*/
+/*    grid-column: 1 / -1;*/
+/*}*/

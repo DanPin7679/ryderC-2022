@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --primary-color: darkorange;
+    --blue-team-color: rgb(20,20,30);
+    --red-team-color: rgb(30,20,20);
+}
+p{
+    margin: 0px;
+    padding: 0px;
+}
+
+a {
+    color: #009579;
+    text-decoration: none;
+}
+ul {
+    list-style-type: none;
+    text-align: center;
+}
+li {
+    font-size: 20px;
+    text-align: left;
+}
+
+h1, h3 {
+    color:var(--primary-color);
+    text-align: center;
+    font-weight: 300;
+    line-height: 1.2;
+    padding-top: 20px;
+}
+
+h3 {
+    color:white;
+}
+
+img {
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nav__link {
+    display: block;
+    /* padding: 5px 10px; */
+    text-decoration: none;
+    color: #eeeeee;
+}
+
+.nav a:hover {
+    border-bottom: 2px var(--primary-color) solid;
+}
+
+.logo {
+    height: 50px;
+    /*width: 240px;*/
+    object-fit: cover;
+    margin: 0px;
+}
