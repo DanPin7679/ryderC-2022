@@ -217,13 +217,14 @@ function totScoreCalculation() {
     var games = state.all_games;
     var redScore = 0;
     var blueScore = 0;
-    
+    console.log(state.all_games)
     for (var i = 0; i < games.length; i++) {
-        
-        if (parseInt(games[i].hole) > 0) {
+        console.log(games[i].blue.player1.score[0])
+        if (parseInt(games[i].hole) > 0 || parseInt(games[i].blue.player1.score[0]) > 0) {
             if (parseInt(games[i].red.score) > parseInt(games[i].blue.score)) {
                 redScore = redScore + 1;
             } else if (parseInt(games[i].red.score) < parseInt(games[i].blue.score)) {
+                console.log("in blue", redScore, blueScore)
                 blueScore = blueScore + 1;
             } else {
                 redScore = redScore + 0.5;
@@ -232,7 +233,8 @@ function totScoreCalculation() {
         }
         
     }
-     return [redScore, blueScore]
+    console.log(redScore, blueScore)
+    return [redScore, blueScore]
 }
 
 // export { getEdition }

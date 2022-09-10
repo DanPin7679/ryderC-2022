@@ -6,7 +6,7 @@ import { buildResults } from "./results.js"
 //updateAllGames()
 
 var state = {
-    day: 2,
+    day: 1,
     game: 1,
     all_games: [],
     game: null,
